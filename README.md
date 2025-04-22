@@ -24,7 +24,7 @@ npm run dev
 npm run server
 ```
 
-- Frontend runs at: [http://localhost:3000](http://localhost:3000)  
+- Frontend runs at: [http://localhost:3000](http://localhost:3000)
 - Backend runs at: [http://localhost:3001](http://localhost:3001)
 
 ---

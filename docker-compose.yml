@@ -1,0 +1,27 @@
+services:
+  node:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      target: dependencies
+    env_file:
+      - .env
+    image: ${PROJECT_NAME}-node
+    container_name: ${PROJECT_NAME}-node-${NODE_ENV}
+    command: dumb-init npm run dev
+    ports:
+      - ${PORT}:${PORT}
+    volumes:
+      - ./:/app
+      - /app/node_modules
+    logging:
+      driver: json-file
+      options:
+        max-size: 20m
+        max-file: 5
+    networks:
+      - carepal-services
+
+networks:
+  carepal-services:
+    name: carepal-services

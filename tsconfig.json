@@ -1,20 +1,54 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "baseUrl": "./src",
+    "outDir": "./build",
+    "target": "ES2017",
+    "lib": ["dom", "dom.iterable", "ESNext"],
+    "declaration": false,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictBindCallApply": true,
+    "strictPropertyInitialization": false,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleDetection": "auto",
     "allowJs": true,
+    "checkJs": false,
+    "noImplicitOverride": true,
+    "noUncheckedSideEffectImports": true,
+    "preserveConstEnums": true,
+    "pretty": true,
+    "preserveWatchOutput": true,
     "skipLibCheck": true,
     "strict": true,
-    "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "esModuleInterop": true,
     "module": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "Bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "incremental": true
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": ["/*"],
+      "@services/*": ["components/server-side/services/*"],
+      "#database/*": ["database/*"],
+      "#validators/*": ["validators/*"],
+      "#services/*": ["services/*"],
+      "@client_components/*": ["components/client-side/*"]
+    }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["**/*.ts", "**/*.tsx", "next-env.d.ts", "build/types/**/*.ts", "./src/server/index.js"],
   "exclude": ["node_modules"]
 }
